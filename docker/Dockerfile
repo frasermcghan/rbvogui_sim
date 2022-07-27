@@ -17,10 +17,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
 	&& apt-get install -q -y \
-		wget \
-		apt-utils \
-		# dialog \
-		sudo \
+	wget \
+	apt-utils \
+	# dialog \
+	sudo \
 	&& apt-get clean -q -y \
 	&& apt-get autoremove -q -y \
 	&& rm -rf /var/lib/apt/lists/* \
@@ -34,32 +34,32 @@ RUN apt-get update \
 
 RUN apt-get update \
 	&& apt-get install -q -y \
-		python3-vcstool \
-		python-catkin-tools \
+	python3-vcstool \
+	python-catkin-tools \
 	&& apt-get clean -q -y \
 	&& apt-get autoremove -q -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update \
 	&& apt-get install -q -y \
-		ros-melodic-ackermann-msgs \
-		ros-melodic-ros-control \
-		ros-melodic-hector-gazebo-plugins \
-		ros-melodic-moveit-planners-ompl \
-		ros-melodic-moveit-ros-planning \
-		python-lxml \
-		ros-melodic-moveit-ros-visualization \
-		ros-melodic-moveit-setup-assistant \
-		ros-melodic-joy \
-		ros-melodic-moveit-fake-controller-manager \
-		ros-melodic-moveit-kinematics \
-		ros-melodic-twist-mux \
-		ros-melodic-moveit-ros-move-group \
-		ros-melodic-moveit-simple-controller-manager \
-		ros-melodic-moveit-core \
-		ros-melodic-joint-trajectory-controller \
-		ros-melodic-ros-controllers \
-		ros-melodic-effort-controllers \
+	ros-melodic-ackermann-msgs \
+	ros-melodic-ros-control \
+	ros-melodic-hector-gazebo-plugins \
+	ros-melodic-moveit-planners-ompl \
+	ros-melodic-moveit-ros-planning \
+	python-lxml \
+	ros-melodic-moveit-ros-visualization \
+	ros-melodic-moveit-setup-assistant \
+	ros-melodic-joy \
+	ros-melodic-moveit-fake-controller-manager \
+	ros-melodic-moveit-kinematics \
+	ros-melodic-twist-mux \
+	ros-melodic-moveit-ros-move-group \
+	ros-melodic-moveit-simple-controller-manager \
+	ros-melodic-moveit-core \
+	ros-melodic-joint-trajectory-controller \
+	ros-melodic-ros-controllers \
+	ros-melodic-effort-controllers \
 	&& apt-get clean -q -y \
 	&& apt-get autoremove -q -y \
 	&& rm -rf /var/lib/apt/lists/*
@@ -132,9 +132,9 @@ RUN mkdir -p $ign_cfg_dir \
 	&& wget $ign_cfg_url -O $ign_cfg_path
 
 ENV NVIDIA_VISIBLE_DEVICES \
-    ${NVIDIA_VISIBLE_DEVICES:-all}
+	${NVIDIA_VISIBLE_DEVICES:-all}
 ENV NVIDIA_DRIVER_CAPABILITIES \
-    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+	${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
 ENV USE_GPU_FOR_SIMULATION true
 
@@ -143,4 +143,5 @@ ENV ROS_BU_LAUNCH "rbvogui_complete.launch kinematics:=omni twist2ackermann:=fal
 ENV CATKIN_WS $ck_dir
 ENV RBK_CATKIN_PATH $ck_dir
 
-CMD bash -c "/ros_entrypoint.sh roslaunch ${ROS_BU_PKG} ${ROS_BU_LAUNCH}"
+CMD bash -c "/ros_entrypoint.sh"
+# CMD bash -c "roslaunch ${ROS_BU_PKG} ${ROS_BU_LAUNCH}"
