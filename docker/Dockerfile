@@ -17,6 +17,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
 	&& apt-get install -q -y \
+	tmux \
+	vim \
 	wget \
 	apt-utils \
 	# dialog \
@@ -60,6 +62,7 @@ RUN apt-get update \
 	ros-melodic-joint-trajectory-controller \
 	ros-melodic-ros-controllers \
 	ros-melodic-effort-controllers \
+	ros-melodic-realsense2-description \
 	&& apt-get clean -q -y \
 	&& apt-get autoremove -q -y \
 	&& rm -rf /var/lib/apt/lists/*
@@ -145,7 +148,11 @@ ENV RBK_CATKIN_PATH $ck_dir
 
 COPY --chown=$user_name \
 	rbvogui_description \
-	$ck_src_dir/rbvogui_common/rbvogui_description/
+	$ck_src_dir/rbvogui_common/rbvogui_description
+
+COPY --chown=$user_name \
+	rbvogui_control \
+	$ck_src_dir/rbvogui_common/rbvogui_control
 
 CMD bash -c "/ros_entrypoint.sh"
 # CMD bash -c "roslaunch ${ROS_BU_PKG} ${ROS_BU_LAUNCH}"

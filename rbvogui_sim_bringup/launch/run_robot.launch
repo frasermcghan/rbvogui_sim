@@ -31,6 +31,8 @@
   <arg name="arm_manufacturer" default="$(optenv ROBOT_ARM_MANUFACTURER ur)"/>
   <arg name="arm_model" default="$(optenv ROBOT_ARM_MODEL ur5)"/>
   <arg name="load_kinematics_file" default="true"/> <!-- Necesary for ur_description compatible with official ur drivers--> 
+  <arg name="use_trajectory_controller" default="$(arg use_trajectory_controller)"/>
+  <arg name="use_position_controller" default="$(arg use_position_controller)"/>
   
   <!-- Gripper configuration -->
   <arg name="launch_gripper" default="$(optenv ROBOT_HAS_GRIPPER false)"/>
@@ -80,6 +82,8 @@
       <arg name="arm_model" value="$(arg arm_model)"/>
       <arg name="gripper_manufacturer" value="$(arg gripper_manufacturer)"/>
       <arg name="gripper_model" value="$(arg gripper_model)"/>
+      <arg name="use_trajectory_controller" value="$(arg use_trajectory_controller)"/>
+      <arg name="use_position_controller" value="$(arg use_position_controller)"/>
       <!-- rbvogui sizes -->
       <arg if="$(eval arg('robot_model') == 'rbvogui')" name="wheel_diameter" value ="0.22" />
       <arg if="$(eval arg('robot_model') == 'rbvogui')" name="track_width" value ="0.439" />
