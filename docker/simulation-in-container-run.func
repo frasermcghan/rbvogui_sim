@@ -199,7 +199,7 @@ function select_simulation() {
 
 function run_simulation() {
     print_info "${nfo_str_running_simulation}"
-    docker run --it --gpus all --rm \
+    docker run -it --gpus all --rm \
         --env="DISPLAY=$DISPLAY" \
         --env="QT_X11_NO_MITSHM=1" \
         --device=/dev/dri \

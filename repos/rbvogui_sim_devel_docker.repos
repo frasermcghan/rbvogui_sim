@@ -51,6 +51,10 @@ repositories:
     type: git
     url: https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
     version: 0.1.0
+  src/realsense_gazebo_plugin:
+    type: git
+    url: https://github.com/pal-robotics/realsense_gazebo_plugin.git
+    version: 1.1.0
   src/xacro:
     type: git
     url: https://github.com/ros/xacro.git

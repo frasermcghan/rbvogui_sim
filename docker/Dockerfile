@@ -143,5 +143,9 @@ ENV ROS_BU_LAUNCH "rbvogui_complete.launch kinematics:=omni twist2ackermann:=fal
 ENV CATKIN_WS $ck_dir
 ENV RBK_CATKIN_PATH $ck_dir
 
+COPY --chown=$user_name \
+	rbvogui_description \
+	$ck_src_dir/rbvogui_common/rbvogui_description/
+
 CMD bash -c "/ros_entrypoint.sh"
 # CMD bash -c "roslaunch ${ROS_BU_PKG} ${ROS_BU_LAUNCH}"
